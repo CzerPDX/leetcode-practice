@@ -1,6 +1,3 @@
-#ifndef SOLUTION_CPP
-#define SOLUTION_CPP
-
 #include <iostream>
 
 #include "solution.h"
@@ -65,7 +62,7 @@ bool Solution::isMatch(string s, string p) {
           // .*.*abc.*
             // This one means I can't just look ahead. But I guess for every .* in a row I can simply look to see if there are any actual characters or any . not followed by a * and then move sIdx to that character and move pIdx to whatever the first character is that isn't a . followed by a *
         // Advance to a non ".*" pair
-        while ((p[pIdx] == '.') && (p[pIdx + 1] == '*') && (pIdx + 1) < pLen)) {
+        while ((p[pIdx] == '.') && (p[pIdx + 1] == '*') && ((pIdx + 1) < pLen)) {
           pIdx += 2;
         }
         // We are at something that isnt ".*" It could be:
@@ -75,7 +72,7 @@ bool Solution::isMatch(string s, string p) {
             // Could be followed by a character, ".", or the end of the string
         // If we are not at the end of the string (so there is something) at pIdx
         if (pIdx < pLen) {
-          nextCharacter = p[pIdx];
+          char nextCharacter = p[pIdx];
           if (nextCharacter != '.') {
             while ((s[sIdx] != nextCharacter) && (sIdx < sLen)) {
               sIdx++;
@@ -110,7 +107,3 @@ bool Solution::isMatch(string s, string p) {
   
   return true;
 }
-
-#endif
-
-

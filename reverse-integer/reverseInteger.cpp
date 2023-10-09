@@ -27,7 +27,7 @@ using namespace std;
  -231 <= x <= 231 - 1
  */
 
-int main(int argc, char** argv) {
+int main(int argc, char *argv[]) {
   Solution *aSolution = new Solution();
 
   cout << aSolution->reverse(1234) << endl;
